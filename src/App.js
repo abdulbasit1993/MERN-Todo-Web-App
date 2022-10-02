@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import moment from "moment";
 import "./App.css";
 import { BASE_URL } from "./config/apiURL";
 import { GET_TODOS, CREATE_TODO, DELETE_TODO } from "./config/apiEndPoints";
@@ -94,9 +95,10 @@ function App() {
             <Preloader />
           ) : (
             todos.map((item) => (
-              <>
+              <div style={{ background: "#16347a", borderRadius: "10px" }}>
                 <div className="todoItem" key={item._id}>
                   <p style={{ color: "#FFFFFF" }}>{item.title}</p>
+                  <p style={{ color: "#FFFFFF" }}>{item.content}</p>
                   <div
                     className="iconButton"
                     onClick={() => toggleDeletePopup(item)}
@@ -104,7 +106,16 @@ function App() {
                     <img src={DEL_ICON} alt="delete-icon" className="icon" />
                   </div>
                 </div>
-              </>
+                <div style={{ paddingLeft: "10px", paddingBottom: "1px" }}>
+                  <i>
+                    <p style={{ color: "#FFFFFF" }}>
+                      Created At: {moment(item?.createdAt).format("hh:mm A, ")}
+                      {moment(item?.createdAt).format("MMM D, YYYY")} (
+                      {moment(item?.createdAt).fromNow()})
+                    </p>
+                  </i>
+                </div>
+              </div>
             ))
           )}
         </div>

@@ -27,8 +27,8 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid #2073e0;
-  border-radius: 10px;
+  /* border: 1px solid #2073e0; */
+  /* border-radius: 10px; */
   margin: 15px;
   padding: 0 20px 0 20px;
   background: #16347a;
